@@ -4,5 +4,9 @@
     <string name="app_name">AfroditaNuvies</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="vestitsnuvia">VESTITS DE NÚVIA</string>
+    <string name="prendremides">PRENDRE\'T LES MIDES</string>
+    <string name="quisom">QUI SOM</string>
+    <string name="dadescontacte">DADES DE CONTACTE</string>
 
 </resources>

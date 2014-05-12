@@ -1,40 +1,9 @@
 package net.infobosccoma.projecte.afroditanuvies.model;
 
-public class Coleccio {
-
-	private final static String IMATGEURL = "/img/coleccions";
-	private final static String IMATGETHUMBURL = IMATGEURL+"/thumbnails";
+public class Coleccio extends Element{
 	
-	private int id;
-	private String nom, descripcio,imatge;
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getNom() {
-		return nom;
-	}
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-	public String getDescripcio() {
-		return descripcio;
-	}
-	public void setDescripcio(String descripcio) {
-		this.descripcio = descripcio;
-	}
-	public String getImatge() {
-		return imatge;
-	}
-	public void setImatge(String imatge) {
-		this.imatge = imatge;
-	}
-	public static String getImatgeurl() {
-		return IMATGEURL;
-	}
-	public static String getImatgethumburl() {
-		return IMATGETHUMBURL;
+	@Override
+	public String getImatgeurl() {
+		return "/img/coleccions";
 	}
 }
