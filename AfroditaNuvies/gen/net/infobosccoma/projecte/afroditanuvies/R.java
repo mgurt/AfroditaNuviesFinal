@@ -31,8 +31,8 @@ public final class R {
         public static final int listView1=0x7f080000;
     }
     public static final class layout {
-        public static final int activity_menu_principal=0x7f030000;
-        public static final int listitem_menuprincipal=0x7f030001;
+        public static final int activity_llista_opcions=0x7f030000;
+        public static final int listitem_llistesopcions=0x7f030001;
     }
     public static final class menu {
         public static final int menu_principal=0x7f070000;
