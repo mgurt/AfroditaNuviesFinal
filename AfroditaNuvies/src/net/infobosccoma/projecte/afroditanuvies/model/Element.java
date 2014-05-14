@@ -14,6 +14,17 @@ abstract public class Element {
 	public String getNom() {
 		return nom;
 	}
+	
+	public Element(){
+		
+	}
+	public Element(int id, String nom, String descripcio, String imatge) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.descripcio = descripcio;
+		this.imatge = imatge;
+	}
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
@@ -32,7 +43,7 @@ abstract public class Element {
 	abstract String getImatgeurl();
 	
 	public String getImatgethumburl() {
-		return getImatgeurl()+"/thumbnails";
+		return getImatgeurl()+"thumbnails/";
 	}
 
 }

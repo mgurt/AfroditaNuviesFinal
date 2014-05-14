@@ -8,5 +8,6 @@
     <string name="prendremides">PRENDRE\'T LES MIDES</string>
     <string name="quisom">QUI SOM</string>
     <string name="dadescontacte">DADES DE CONTACTE</string>
+    <string name="title_activity_llistar_temporades">LlistarTemporades</string>
 
 </resources>

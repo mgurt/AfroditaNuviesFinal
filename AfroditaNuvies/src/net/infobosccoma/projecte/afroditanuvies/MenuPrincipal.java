@@ -1,7 +1,13 @@
 package net.infobosccoma.projecte.afroditanuvies;
 
+import java.util.ArrayList;
+
+import net.infobosccoma.projecte.afroditanuvies.model.Element;
+import net.infobosccoma.projecte.afroditanuvies.model.Temporada;
+
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
@@ -22,10 +28,12 @@ public class MenuPrincipal extends Activity implements OnItemClickListener {
 				getResources().getString(R.string.quisom),
 				getResources().getString(R.string.dadescontacte) };
 		String[] values2 = { "ic_launcher", "ic_launcher", "ic_launcher",
-				"ic_launcher" };
+				"ic_launcher" };		
+		
 		ElementsmenuAdapter adapter = new ElementsmenuAdapter(this, values,
 				values2);
 		llista.setAdapter(adapter);
+		llista.setOnItemClickListener(this);
 	}
 
 	@Override
@@ -39,7 +47,8 @@ public class MenuPrincipal extends Activity implements OnItemClickListener {
 	public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
 		switch (position){
 		case 0:
-			//TODO implementar opció
+			Intent i = new Intent(getApplicationContext(),LlistarTemporades.class);
+			startActivity(i);
 			break;
 		case 1:
 			//TODO implementar opció
