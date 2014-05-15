@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import net.infobosccoma.projecte.afroditanuvies.model.Coleccio;
 import net.infobosccoma.projecte.afroditanuvies.model.Element;
-import net.infobosccoma.projecte.afroditanuvies.model.Temporada;
 import net.infobosccoma.projecte.afroditanuvies.utils.JSonResponse;
 
 import org.apache.http.NameValuePair;
@@ -14,15 +13,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
 
-public class LlistaColeccionsActivity extends Activity implements OnItemClickListener {
+public class LlistaColeccionsActivity extends Activity implements
+		OnItemClickListener {
 	ListView llista;
 	private net.infobosccoma.projecte.afroditanuvies.utils.JSonResponse jsonResponse;
 	private ArrayList<Element> coleccions;
@@ -56,11 +58,15 @@ public class LlistaColeccionsActivity extends Activity implements OnItemClickLis
 
 	private class connexioHTTPPost extends AsyncTask<String, Void, JSONArray> {
 
+		private ProgressDialog dialog = new ProgressDialog(
+				LlistaColeccionsActivity.this);
+
 		/**
 		 * S'executa aquest mètode abans del mètode doInBackground
 		 */
 		protected void onPreExecute() {
-
+			dialog.setMessage(getString(R.string.carregantColeccions));
+			dialog.show();
 		}
 
 		/**
@@ -107,6 +113,7 @@ public class LlistaColeccionsActivity extends Activity implements OnItemClickLis
 
 			} else {
 			}
+			dialog.dismiss();
 
 		}
 
@@ -114,8 +121,13 @@ public class LlistaColeccionsActivity extends Activity implements OnItemClickLis
 
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-		// TODO Auto-generated method stub
-		
+		Intent llancaActivitat = new Intent(getBaseContext(),
+				MostrarColeccioActivity.class);
+		Bundle lacoleccio = new Bundle();
+		lacoleccio.putSerializable("coleccio", (Coleccio) coleccions.get(arg2));
+		llancaActivitat.putExtras(lacoleccio);
+		startActivity(llancaActivitat);
+
 	}
 
 }

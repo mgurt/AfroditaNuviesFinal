@@ -1,6 +1,8 @@
 package net.infobosccoma.projecte.afroditanuvies.model;
 
-abstract public class Element {
+import java.io.Serializable;
+
+abstract public class Element implements Serializable{
 	
 	
 	private int id;

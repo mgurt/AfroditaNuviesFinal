@@ -1,17 +1,15 @@
 package net.infobosccoma.projecte.afroditanuvies;
 
-import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 import net.infobosccoma.projecte.afroditanuvies.model.Element;
+import net.infobosccoma.projecte.afroditanuvies.utils.AppConstant;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,7 +44,7 @@ public class LlistaElementAdapter extends ArrayAdapter<Element> {
 
 
 		 try {
-			imageView.setImageBitmap(new connexionHTTP().execute("http://afroditanuvies.bugs3.com"
+			imageView.setImageBitmap(new connexionHTTP().execute(AppConstant.URL
 						+ values.get(position).getImatgethumburl()+values.get(position).getImatge()).get());
 		} catch (InterruptedException e) {
 			e.printStackTrace();

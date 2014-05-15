@@ -36,6 +36,11 @@
             android:name="net.infobosccoma.projecte.afroditanuvies.MostrarColeccioActivity"
             android:label="@string/title_activity_mostrar_coleccio" >
         </activity>
+        <activity
+            android:name="net.infobosccoma.projecte.afroditanuvies.MostrarTeixitActivity"
+            android:label="@string/title_activity_mostrar_teixit" >
+        </activity>
+        <activity android:name="LlistaTeixits" android:theme="@style/AppBaseTheme"></activity>
     </application>
 
 </manifest>
