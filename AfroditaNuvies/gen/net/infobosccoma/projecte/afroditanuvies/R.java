@@ -31,11 +31,16 @@ public final class R {
         public static final int listView1=0x7f080000;
     }
     public static final class layout {
-        public static final int activity_llista_opcions=0x7f030000;
-        public static final int listitem_llistesopcions=0x7f030001;
+        public static final int activity_llista_coleccions=0x7f030000;
+        public static final int activity_llista_opcions=0x7f030001;
+        public static final int activity_mostrar_coleccio=0x7f030002;
+        public static final int listitem_llistesopcions=0x7f030003;
     }
     public static final class menu {
-        public static final int menu_principal=0x7f070000;
+        public static final int llista_coleccions=0x7f070000;
+        public static final int llistar_temporades=0x7f070001;
+        public static final int menu_principal=0x7f070002;
+        public static final int mostrar_coleccio=0x7f070003;
     }
     public static final class string {
         public static final int action_settings=0x7f050001;
@@ -44,6 +49,9 @@ public final class R {
         public static final int hello_world=0x7f050002;
         public static final int prendremides=0x7f050004;
         public static final int quisom=0x7f050005;
+        public static final int title_activity_llista_coleccions=0x7f050008;
+        public static final int title_activity_llistar_temporades=0x7f050007;
+        public static final int title_activity_mostrar_coleccio=0x7f050009;
         public static final int vestitsnuvia=0x7f050003;
     }
     public static final class style {

@@ -28,6 +28,14 @@
             android:name="net.infobosccoma.projecte.afroditanuvies.LlistarTemporades"
             android:label="@string/title_activity_llistar_temporades" >
         </activity>
+        <activity
+            android:name="net.infobosccoma.projecte.afroditanuvies.LlistaColeccionsActivity"
+            android:label="@string/title_activity_llista_coleccions" >
+        </activity>
+        <activity
+            android:name="net.infobosccoma.projecte.afroditanuvies.MostrarColeccioActivity"
+            android:label="@string/title_activity_mostrar_coleccio" >
+        </activity>
     </application>
 
 </manifest>

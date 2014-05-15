@@ -2,6 +2,7 @@ package net.infobosccoma.projecte.afroditanuvies;
 
 import java.util.ArrayList;
 
+import net.infobosccoma.projecte.afroditanuvies.model.Coleccio;
 import net.infobosccoma.projecte.afroditanuvies.model.Element;
 import net.infobosccoma.projecte.afroditanuvies.model.Temporada;
 import net.infobosccoma.projecte.afroditanuvies.utils.JSonResponse;
@@ -13,24 +14,24 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class LlistarTemporades extends Activity implements OnItemClickListener{
+public class LlistaColeccionsActivity extends Activity implements OnItemClickListener {
 	ListView llista;
 	private net.infobosccoma.projecte.afroditanuvies.utils.JSonResponse jsonResponse;
-	private ArrayList<Element> temporades;
+	private ArrayList<Element> coleccions;
+	int laTemporada;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		laTemporada = getIntent().getIntExtra("idTemporada", 0);
 		setContentView(R.layout.activity_llista_opcions);
 		llista = (ListView) findViewById(R.id.listView1);
 
@@ -38,31 +39,28 @@ public class LlistarTemporades extends Activity implements OnItemClickListener{
 		jsonResponse = new JSonResponse();
 
 		// Crear la llista on acabarà la informació
-		temporades = new ArrayList<Element>();
+		coleccions = new ArrayList<Element>();
 
 		// Obtenir la informació
 		new connexioHTTPPost()
-				.execute("http://afroditanuvies.bugs3.com/json/temporades.php");
+				.execute("http://afroditanuvies.bugs3.com/json/coleccions.php");
 		llista.setOnItemClickListener(this);
 	}
-	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.llistar_temporades, menu);
+		getMenuInflater().inflate(R.menu.llista_coleccions, menu);
 		return true;
 	}
-	
-	private class connexioHTTPPost extends AsyncTask<String, Void, JSONArray> {
 
-		
+	private class connexioHTTPPost extends AsyncTask<String, Void, JSONArray> {
 
 		/**
 		 * S'executa aquest mètode abans del mètode doInBackground
 		 */
 		protected void onPreExecute() {
-			
+
 		}
 
 		/**
@@ -74,11 +72,12 @@ public class LlistarTemporades extends Activity implements OnItemClickListener{
 			// Assignar la URL
 			jsonResponse.setURL(url[0]);
 			// Crear un POST amb els paràmetres corresponents
-//			ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
-//			postParameters.add(new BasicNameValuePair("idTemporada", "36"));
+			ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
+			postParameters.add(new BasicNameValuePair("idTemporada", ""
+					+ laTemporada));
 			// Executar la consulta
-//			return jsonResponse.ejectuarConsultaPost(postParameters);
-			return jsonResponse.ejecutarConsultaGet();
+			return jsonResponse.ejectuarConsultaPost(postParameters);
+			// return jsonResponse.ejecutarConsultaGet();
 		}
 
 		/**
@@ -94,12 +93,13 @@ public class LlistarTemporades extends Activity implements OnItemClickListener{
 
 						jSonObject = jArray.getJSONObject(i);
 
-						temporades.add(new Temporada(jSonObject.getInt("id"),
+						coleccions.add(new Coleccio(jSonObject.getInt("id"),
 								jSonObject.getString("nom"), jSonObject
 										.getString("descripcio"), jSonObject
-										.getString("imatge")));	
+										.getString("imatge")));
 					}
-					LlistaElementAdapter adapter = new LlistaElementAdapter(getBaseContext(), temporades);
+					LlistaElementAdapter adapter = new LlistaElementAdapter(
+							getBaseContext(), coleccions);
 					llista.setAdapter(adapter);
 				} catch (JSONException e) {
 					e.printStackTrace();
@@ -114,10 +114,6 @@ public class LlistarTemporades extends Activity implements OnItemClickListener{
 
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-		int idTemporada = temporades.get(arg2).getId();
-		Intent mostrarcoleccions = new Intent(getBaseContext(),LlistaColeccionsActivity.class);
-		mostrarcoleccions.putExtra("idTemporada", idTemporada);
-		startActivity(mostrarcoleccions);
 		// TODO Auto-generated method stub
 		
 	}

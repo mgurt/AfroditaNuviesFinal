@@ -9,5 +9,7 @@
     <string name="quisom">QUI SOM</string>
     <string name="dadescontacte">DADES DE CONTACTE</string>
     <string name="title_activity_llistar_temporades">LlistarTemporades</string>
+    <string name="title_activity_llista_coleccions">LlistaColeccionsActivity</string>
+    <string name="title_activity_mostrar_coleccio">MostrarColeccioActivity</string>
 
 </resources>
