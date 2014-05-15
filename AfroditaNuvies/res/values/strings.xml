@@ -11,5 +11,6 @@
     <string name="title_activity_llistar_temporades">LlistarTemporades</string>
     <string name="title_activity_llista_coleccions">LlistaColeccionsActivity</string>
     <string name="title_activity_mostrar_coleccio">MostrarColeccioActivity</string>
-
+	<string name="btnTancarVestit">Tornar</string>
+    
 </resources>
